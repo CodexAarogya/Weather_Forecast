@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast | Aarogya Parajuli</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: #212121; color: wheat;">
-    <div class="container">
 
-    </div>
+<body>
+    <main>
+        <div class="left-container">
+            <div class="input-container">
+                <input type="search" name="searchBox" id="searchBox" placeholder="Search for places ..."
+                    spellcheck="false" required>
+                <span id="searchIcon"><img src="/icons/magnifying-glass-icon.svg" alt="search"></span>
+            </div>
+
+            <div class="left-center-img-container">
+                <img src="icons/temperature-with-sun.svg" alt="image">
+            </div>
+
+            <div class="left-data-box">
+                <div class="inside-data-temp">
+                    <p>12&deg;C</p>
+                </div>
+                <div class="inside-data-day">
+                    <span>Monday , </span>
+                    <span class="localTime">16:00</span>
+                </div>
+            </div>
+            <div class="left-weather-description">
+                <div class="description-box">
+                    <span><img src="/icons/close-round-line-icon.svg" alt="weather-image">Mostly Cloudy</span>
+                    <span><img src="/icons/close-round-line-icon.svg" alt="weather-image">Feels Like 10&deg;C</span>
+                </div>
+            </div>
+            <div class="left-botton-img-box">
+
+                <img src="/icons/city-banner.jpg" alt="city-hanner">
+
+                <div class="city-name"><span>Kathmandu, Nepal</span></div>
+            </div>
+        </div>
+        </div>
+
+
+
+        <div class="right-container">
+
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
+
 </html>
