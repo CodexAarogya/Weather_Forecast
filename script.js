@@ -2,12 +2,18 @@
 
 const URL = 'https://api.openweathermap.org/data/2.5/weather?q='
 const API_ID = '&appid=1ecbfb6747c1f879d80ea2600aa097df&units='
-const UNIT = 'metric'
+const UNIT = 'metric';
+const ICON_URL = 'https://openweathermap.org/img/w/';
 const dayArray = ["Sunday", "Monday", "Tuesday", "wednesday", "Thursday", "Friday", "Saturday"];
 const input = document.querySelector('input')
 const search = document.querySelector('#searchIcon')
 const day_select = document.querySelector('.inside-data-day').firstElementChild
-const set_time = document.querySelector('.localTime')
+const date_select = document.querySelector('.my-date')
+
+const date = new Date();
+const myDay = date.getUTCDay();
+const myDate = date.toLocaleDateString();
+const mytime = date.getHours()
 
 input.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
@@ -17,15 +23,49 @@ input.addEventListener('keypress', (event) => {
 })
 
 // search.addEventListener('click', validate(input.value));
-async function getDay(){
-    const date = new Date();
-    const day = date.getDay();
-    day_select.innerText = `${dayArray[day]} , `
+
+function greeting(time) {
+    if (time >= 1 && time <= 11) {
+        document.querySelector('#greet').innerText = 'Good Morning!'
+    }
+    else if (time >= 12 && time <= 16) {
+        document.querySelector('#greet').innerText = 'Good Afternoon!'
+    }
+    else {
+        document.querySelector('#greet').innerText = 'Good Evening!'
+    }
 }
-function getTime(){
-    const mytime = new Date();
-    const time = mytime.toLocaleTimeString();
-    set_time.innerText = time;
+
+greeting(mytime);
+async function dateInfo() {
+
+    day_select.innerText = `${dayArray[myDay]} , `
+    date_select.innerText = `${myDate}`;
+}
+
+async function check_humidity(humidity) {
+    if (humidity <= 30) {
+        return "Very Dry"
+    }
+    else if (humidity >= 31 && humidity <= 37) {
+        return "Uncomfortable"
+    }
+    else if (humidity >= 38 && humidity <= 41) {
+        return "Comfortable"
+    }
+    else if (humidity >= 41 && humidity <= 46) {
+        return "Moderate"
+    }
+    else if (humidity >= 47 && humidity <= 52) {
+        return "Uncomfortable"
+    }
+    else if (humidity >= 53 && humidity <= 60) {
+        return "Very humid"
+    }
+    else {
+        return "Extreme"
+    }
+
 }
 
 async function fetchData(location) {
@@ -37,17 +77,32 @@ async function fetchData(location) {
         console.log(data)
 
         if (response.ok) {
-            getDay();
-            setInterval(getTime, 1000);
-            let temperature = document.querySelector('.inside-data-temp')
-            let feel = document.querySelector('#feels-like')
-            let w_description = document.querySelector('#w-description')
-            let city_name = document.querySelector('.city-name')
 
-            temperature.innerText = Math.round(data.main.temp) + '°C'
-            feel.innerText = `Feels like ${Math.round(data.main.feels_like)}°C`
-            w_description.innerText = data.weather[0].description
-            city_name.innerText = `${data.name} , ${data.sys.country}`
+            dateInfo();
+            let temperature = document.querySelector('.inside-data-temp')
+            let feel = document.querySelector('.feels-like-container').lastElementChild
+            let w_description = document.querySelector('.w-description-container').lastElementChild
+            let my_location = document.querySelector('#my-location')
+            // let city_name = document.querySelector('.city-name')
+            let w_icon = document.querySelector('#w-icon')
+            let URL_ID = `${data.weather[0].icon}.png`
+            let wind_parameter = document.querySelector('#wind-parameter')
+            let humidity_parameter = document.querySelector('#humidity-parameter')
+            let humidity_status = document.querySelector('#humidity-status')
+            let uv_parameter = document.querySelector('#uv-parameter')
+            let visibility_parameter = document.querySelector('#visibility-parameter')
+
+            temperature.innerText = Math.round(data.main.temp) + '°C';
+            feel.innerText = `feels like ${Math.round(data.main.feels_like)}°C`;
+            w_description.innerText = data.weather[0].description;
+            w_icon.setAttribute('src', (ICON_URL + URL_ID));
+            // city_name.innerText = `${data.name} , ${data.sys.country}`;
+            my_location.innerText = `${data.name} , ${data.sys.country}`;
+            wind_parameter.innerText = `${data.wind.speed} Km/h`;
+            humidity_parameter.innerText = `${data.main.humidity} %`;
+            humidity_status.innerText = await check_humidity(data.main.humidity);
+            // uv_parameter.innerText = 
+            visibility_parameter.innerText = Math.round((data.visibility) / 1000) + " Km";
         }
         else {
             console.log(data.message)

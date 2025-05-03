@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast | Aarogya Parajuli</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
     <main>
         <div class="left-container">
+            <div class="greetings">
+                <span><img src="/icons/user.png" alt="user" width="24px" height="24px"></span>
+                <span id="greet">Good Morning !</span>
+                <span id="user-name">Aarogya</span>
+
+            </div>
             <div class="input-container">
-                <input type="search" name="searchBox" id="searchBox" placeholder="Search for places ..."
-                    spellcheck="false" required>
+                <input type="search" name="searchBox" id="searchBox" placeholder="Enter Location" spellcheck="false"
+                    required>
                 <span id="searchIcon"><img src="/icons/magnifying-glass-icon.svg" alt="search"></span>
             </div>
 
@@ -26,21 +33,24 @@
                     <p>12&deg;C</p>
                 </div>
                 <div class="inside-data-day">
-                    <span>Monday , </span>
-                    <span class="localTime">16:00</span>
+                    <span>Sunday</span>
+                    <span class="my-date">-</span>
                 </div>
             </div>
             <div class="left-weather-description">
-                <div class="description-box">
-                    <span id="w-description"><img src="/icons/close-round-line-icon.svg" alt="weather-image">Mostly Cloudy</span>
-                    <span id="feels-like"><img src="/icons/close-round-line-icon.svg" alt="weather-image">Feels Like 10&deg;C</span>
+                <div class="address-container">
+                    <span><img src="icons/location.png" alt="address-icon" style="width: 40px; height: 40px;"></span>
+                    <span id="my-location">Kathmandu , NP</span>
                 </div>
-            </div>
-            <div class="left-botton-img-box">
-
-                <img src="/icons/city-banner.jpg" alt="city-hanner">
-
-                <div class="city-name"><span>Kathmandu, Nepal</span></div>
+                <div class="w-description-container">
+                    <span><img id="w-icon" src="icons/description.png" alt="weather-icon"></span>
+                    <span>Heavy Rain</span>
+                </div>
+                <div class="feels-like-container">
+                    <span><img src="icons/feels-like-icon.png" alt="weather-icon"
+                            style="width: 40px; height: 40px;"></span>
+                    <span>feels Like 12&deg;C</span>
+                </div>
             </div>
         </div>
         </div>
@@ -48,7 +58,87 @@
 
 
         <div class="right-container">
+            <div class="highlight-box">
+                <div class="highlight-text">
+                    <p>Today's Highlight</p>
+                </div>
+                <div class="highlights">
+                    <div class="left-highlight">
+                        <div class="firstHighlight">
+                            <div class="highlightIcon">
+                                <img src="/icons/wind.png" alt="wind-icon">
+                            </div>
+                            <div class="status">
 
+                                <span>Wind Status</span>
+                                <span id="wind-parameter">-</span>
+                                <span>-</span>
+
+                            </div>
+                        </div>
+                        <div class="secondHighlight">
+                            <div class="highlightIcon">
+                                <img src="icons/humidity.png" alt="wind-icon">
+                            </div>
+                            <div class="status">
+
+                                <span>Humidity</span>
+                                <span id="humidity-parameter">-</span>
+                                <span id="humidity-status">-</span>
+
+                            </div>
+                        </div>
+                        <div class="thirdHighlight">
+                            <div class="highlightIcon">
+                                <img src="icons/uv.png" alt="wind-icon">
+                            </div>
+                            <div class="status">
+
+                                <span>UV Index</span>
+                                <span id="uv-parameter">-</span>
+                                <span>-</span>
+
+                            </div>
+                        </div>
+                        <div class="fourthHighlight">
+                            <div class="highlightIcon">
+                                <img src="icons/visibility.png" alt="wind-icon">
+                            </div>
+                            <div class="status">
+
+                                <span>Visibility</span>
+                                <span id="visibility-parameter">-</span>
+                                <span>-</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-highlight">
+                        <div class="sunrise-box">
+                            <div class="highlightIcon">
+                                <img src="icons/sunrise.png" alt="wind-icon">
+                            </div>
+                            <div class="status">
+
+                                <span>Sunrise</span>
+                                <span>7:00 AM</span>
+
+                            </div>
+                        </div>
+                        <div class="sunset-box">
+                            <div class="highlightIcon">
+                                <img src="icons/sunset.png" alt="wind-icon">
+                            </div>
+                            <div class="status">
+
+                                <span>Sunset</span>
+                                <span>7:00 PM</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
