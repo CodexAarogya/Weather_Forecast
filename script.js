@@ -42,7 +42,7 @@ function fetchUserData() {
     if (localStorage.address) {
         fetchData(localStorage.address)
     }
-    
+
 }
 fetchUserData();
 
