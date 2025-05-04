@@ -12,10 +12,11 @@
 <body>
     <main>
         <div class="left-container">
+            
             <div class="greetings">
-                <span><img src="/icons/user.png" alt="user" width="24px" height="24px"></span>
+                <span><img src="/icons/user.png" alt="user" width="28px" height="28px"></span>
                 <span id="greet">Good Morning !</span>
-                <span id="user-name">Aarogya</span>
+                <span id="user-name"></span>
 
             </div>
             <div class="input-container">
@@ -39,7 +40,7 @@
             </div>
             <div class="left-weather-description">
                 <div class="address-container">
-                    <span><img src="icons/location.png" alt="address-icon" style="width: 40px; height: 40px;"></span>
+                    <span><img src="icons/location.png" alt="address-icon"></span>
                     <span id="my-location">Kathmandu , NP</span>
                 </div>
                 <div class="w-description-container">
@@ -47,8 +48,7 @@
                     <span>Heavy Rain</span>
                 </div>
                 <div class="feels-like-container">
-                    <span><img src="icons/feels-like-icon.png" alt="weather-icon"
-                            style="width: 40px; height: 40px;"></span>
+                    <span><img src="icons/feels-like-icon.png" alt="weather-icon"></span>
                     <span>feels Like 12&deg;C</span>
                 </div>
             </div>
@@ -140,7 +140,27 @@
                 </div>
             </div>
         </div>
-    </main>
+        <div class="getUserName">
+            <div class="name-popup">
+                
+                    <span id="close-icon-user-section"><img src="icons/close-line-icon.svg" alt="close" width="18px" height="18px"></span>
+
+                    <div class="user-profile-image">
+                        <img src="/icons/user.gif" alt="">
+                    </div>       
+                    
+                    <form>
+                        <label for="userName">Name</label>
+                        <input type="text" name="user-name" id="userName" required>
+                        <label for="userAddress">Address</label>
+                        <input type="search" name="user-address" id="userAddress">
+                        <span><input type="checkbox" name="remember" id="rememberChoice" checked> Remember Choice</span>
+                        <button type="submit" id="submit-userName">Submit</button>
+                    </form>
+            </div>
+        </div>
+        
+    </main> 
 
     <script src="script.js"></script>
 </body>

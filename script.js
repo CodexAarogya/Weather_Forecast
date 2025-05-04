@@ -1,29 +1,23 @@
 // 'https://api.openweathermap.org/data/2.5/weather?q=mbai&appid=1ecbfb6747c1f879d80ea2600aa097df&units=metric'
-
+// ------------------- API Relative Constants --------------------------------------------
 const URL = 'https://api.openweathermap.org/data/2.5/weather?q='
 const API_ID = '&appid=1ecbfb6747c1f879d80ea2600aa097df&units='
 const UNIT = 'metric';
 const ICON_URL = 'https://openweathermap.org/img/w/';
 const dayArray = ["Sunday", "Monday", "Tuesday", "wednesday", "Thursday", "Friday", "Saturday"];
 const input = document.querySelector('input')
+const user = document.querySelector('.greetings').firstElementChild
 const search = document.querySelector('#searchIcon')
 const day_select = document.querySelector('.inside-data-day').firstElementChild
 const date_select = document.querySelector('.my-date')
+
+// ---------------------------- Time and Greetings ----------------------------------------------------
+
 
 const date = new Date();
 const myDay = date.getUTCDay();
 const myDate = date.toLocaleDateString();
 const mytime = date.getHours()
-
-input.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        event.preventDefault();
-        fetchData(input.value)
-    }
-})
-
-// search.addEventListener('click', validate(input.value));
-
 function greeting(time) {
     if (time >= 1 && time <= 11) {
         document.querySelector('#greet').innerText = 'Good Morning!'
@@ -36,13 +30,40 @@ function greeting(time) {
     }
 }
 
-greeting(mytime);
+function fetchUserData() {
+    if (localStorage.user) {
+        document.querySelector('#user-name').innerText = localStorage.user;
+    }
+    else {
+        setTimeout(() => {
+            document.querySelector('.getUserName').style.display = "flex";
+        }, 1000)
+    }
+    if (localStorage.address) {
+        fetchData(localStorage.address)
+    }
+    
+}
+fetchUserData();
+
+
+
+const displayUserData = () => {
+    const uName = document.querySelector('#userName').value
+    const uAddress = document.querySelector('#userAddress').value
+    localStorage.setItem('user', `${uName}`)
+    localStorage.setItem('address', `${uAddress}`)
+}
+
+
 async function dateInfo() {
 
     day_select.innerText = `${dayArray[myDay]} , `
     date_select.innerText = `${myDate}`;
 }
+greeting(mytime);
 
+// ------------------------ Check Parameters ---------------------------------------------------
 async function check_humidity(humidity) {
     if (humidity <= 30) {
         return "Very Dry"
@@ -67,6 +88,8 @@ async function check_humidity(humidity) {
     }
 
 }
+
+// ---------------------------------- Fetching Data ----------------------------------------------------
 
 async function fetchData(location) {
     console.log('Fetching Data ...')
@@ -112,4 +135,29 @@ async function fetchData(location) {
         console.error(error);
     }
 }
+
+// -------------------------------- Event Listeners --------------------------------------------
+input.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        fetchData(input.value)
+    }
+})
+
+// search.addEventListener('click', validate(input.value));
+
+user.addEventListener('click', () => {
+    document.querySelector('.getUserName').style.display = "flex";
+})
+document.querySelector('#close-icon-user-section').addEventListener('click', () => {
+    document.querySelector('.getUserName').style.display = "none";
+})
+
+document.querySelector('#submit-userName').addEventListener('click', displayUserData);
+
+
+
+
+
+
 
