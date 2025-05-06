@@ -10,15 +10,15 @@
 </head>
 
 <body>
-    <main>
+    <main class="lightMode">
         <div class="left-container">
-            
+
             <!-- <div class="greetings">
                 <span><img src="/icons/user.gif" alt="user" width="48px" height="48px"></span>
                 <span id="greet">Good Morning !</span>
                 <span id="user-name">Aarogya</span>
             </div> -->
-            
+
             <div class="input-container">
                 <input type="search" name="searchBox" id="searchBox" placeholder="Enter Location" spellcheck="false"
                     required>
@@ -31,27 +31,40 @@
 
             <div class="left-data-box">
                 <div class="inside-data-temp">
-                    <p>-</p>
+                    <p>N/A</p>
                 </div>
                 <div class="inside-data-day">
                     <span>Sunday</span>
-                    <span class="my-date">-</span>
+                    <span class="my-date">N/A</span>
                 </div>
             </div>
             <div class="left-weather-description">
                 <div class="address-container">
                     <span><img src="icons/location.png" alt="address-icon"></span>
-                    <span id="my-location">Please Enter Location ...</span>
+                    <span id="my-location">N/A</span>
                 </div>
                 <div class="w-description-container">
                     <span><img id="w-icon" src="icons/description.png" alt="weather-icon"></span>
-                    <span>Please Enter Location ...</span>
+                    <span>N/A</span>
                 </div>
                 <div class="feels-like-container">
                     <span><img src="icons/feels-like-icon.png" alt="weather-icon"></span>
-                    <span>Please Enter Location ... </span>
+                    <span>N/A </span>
                 </div>
-                
+                <div class="preference-box">
+                    <li class="toggle"><span><img id="sun" src="icons/sun-mode.png " alt="switch-to-dark"></span>
+                        <span><img id="moon" src="icons/moon.png" alt="switch-to-dark"></span>
+                    </li>
+
+                    <!-- <li><span>
+                            <img id="fah-Scale" src="icons/fahrenheit-degrees.png" alt="fahrenheit">
+                        </span>
+                        <span>
+                            <img id="cel-Scale" src="icons/celcius.png" alt="celcius">
+                        </span>
+                    </li> -->
+
+                </div>
             </div>
         </div>
         </div>
@@ -62,7 +75,7 @@
             <div class="greetings">
                 <span><img src="/icons/user.gif" alt="user" width="48px" height="48px"></span>
                 <span id="greet">Good Morning !</span>
-                <span id="user-name">User</span>
+                <span id="user-name">User, Please Enter Location</span>
             </div>
             <div class="highlight-box">
                 <div class="highlight-text">
@@ -77,8 +90,8 @@
                             <div class="status">
 
                                 <span>Wind Status</span>
-                                <span id="wind-parameter">-</span>
-                                <span>-</span>
+                                <span id="wind-parameter">N/A</span>
+                                <span>N/A</span>
 
                             </div>
                         </div>
@@ -89,8 +102,8 @@
                             <div class="status">
 
                                 <span>Humidity</span>
-                                <span id="humidity-parameter">-</span>
-                                <span id="humidity-status">-</span>
+                                <span id="humidity-parameter">N/A</span>
+                                <span id="humidity-status">N/A</span>
 
                             </div>
                         </div>
@@ -101,8 +114,8 @@
                             <div class="status">
 
                                 <span>UV Index</span>
-                                <span id="uv-parameter">-</span>
-                                <span>-</span>
+                                <span id="uv-parameter">N/A</span>
+                                <span>N/A</span>
 
                             </div>
                         </div>
@@ -113,8 +126,8 @@
                             <div class="status">
 
                                 <span>Visibility</span>
-                                <span id="visibility-parameter">-</span>
-                                <span>-</span>
+                                <span id="visibility-parameter">N/A</span>
+                                <span>N/A</span>
 
                             </div>
                         </div>
@@ -145,30 +158,196 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="getUserName">
-            <div class="name-popup">
-                
-                    <span id="close-icon-user-section"><img src="icons/close-line-icon.svg" alt="close" width="18px" height="18px"></span>
+            <div class="forecast-container">
+                <div class="forecast-box">
+                    <div class="highlight-text">
+                        <p>7 Days Forecast &#x26C5;</p>
+                    </div>
+                    <div class="days" id="day1">
+                        <div class="day1-wimage">
+                            <img id="day1-wimage" src="icons/sun.png" alt="sun">
+                        </div>
+                        <div class="day1-w">
+                            -
+                        </div>
+                        <div class="day1-day">
+                            Sunday
+                        </div>
+                    </div>
+                    <div class="days" id="day2">
+                        <div class="day2-wimage">
+                            <img id="day2-wimage" src="icons/heavy-rain.png" alt="sun">
+                        </div>
+                        <div class="day2-w">
+                            -
+                        </div>
+                        <div class="day2-day">
+                            Monday
+                        </div>
+                    </div>
+                    <div class="days" id="day3">
+                        <div class="day3-wimage">
+                            <img id="day3-wimage" src="icons/sun.png" alt="sun">
+                        </div>
+                        <div class="day3-w">
+                            -
+                        </div>
+                        <div class="day3-day">
+                            Tuesday
+                        </div>
+                    </div>
+                    <div class="days" id="day4">
+                        <div class="day4-wimage">
+                            <img id="day4-wimage" src="icons/heavy-rain.png" alt="sun">
+                        </div>
+                        <div class="day4-w">
+                            -
+                        </div>
+                        <div class="day4-day">
+                            Wednesday
+                        </div>
+                    </div>
+                    <div class="days" id="day5">
+                        <div class="day5-wimage">
+                            <img id="day5-wimage" src="icons/sun.png" alt="sun">
+                        </div>
+                        <div class="day5-w">
+                            -
+                        </div>
+                        <div class="day5-day">
+                            Thursday
+                        </div>
+                    </div>
+                    <div class="days" id="day6">
+                        <div class="day6-wimage">
+                            <img id="day6-wimage" src="icons/heavy-rain.png" alt="sun">
+                        </div>
+                        <div class="day6-w">
+                            -
+                        </div>
+                        <div class="day6-day">
+                            Friday
+                        </div>
+                    </div>
+                    <div class="days" id="day7">
+                        <div class="day7-wimage">
+                            <img id="day7-wimage" src="icons/sun.png" alt="sun">
+                        </div>
+                        <div class="day7-w">
+                            -
+                        </div>
+                        <div class="day7-day">
+                            Saturday
+                        </div>
+                    </div>
+                </div>
+                <div class="forecast-box">
+                    <div class="highlight-text">
+                        <p>Popular Cities &#127961;&#65039;</p>
+                    </div>
+                    <div class="cities" id="city1">
+                        <div class="city1-wimage">
+                            <img id="city1-wimage" src="icons/description.png" alt="sun">
+                        </div>
+                        <div class="city1-w">
+                            weather
+                        </div>
+                        <div class="city1">Kathmandu, NP</div>
 
-                    <div class="user-profile-image">
-                        <img src="/icons/user.gif" alt="">
-                        
-                    </div>       
-                    
-                    <form>
-                        <label for="userName">Name</label>
-                        <input type="text" name="user-name" id="userName" required>
-                        <label for="userAddress">Address</label>
-                        <input type="search" name="user-address" id="userAddress">
-                        <span><input type="checkbox" name="remember" id="rememberChoice" checked> Remember Choice</span>
-                        <button type="submit" id="submit-userName">Submit</button>
-                    </form>
+                    </div>
+                    <div class="cities" id="city2">
+                        <div class="city2-wimage">
+                            <img id="city2-wimage" src="icons/description.png" alt="sun">
+                        </div>
+                        <div class="city2-w">
+                            weather
+                        </div>
+                        <div class="city2">Pokhara, NP</div>
+                    </div>
+                    <div class="cities" id="city3">
+                        <div class="city3-wimage">
+                            <img id="city3-wimage" src="icons/description.png" alt="sun">
+                        </div>
+                        <div class="city3-w">
+                            weather
+                        </div>
+                        <div class="city3">New York, US</div>
+                    </div>
+                    <div class="cities" id="city4">
+                        <div class="city4-wimage">
+                            <img id="city4-wimage" src="icons/description.png" alt="sun">
+                        </div>
+                        <div class="city4-w">
+                            weather
+                        </div>
+                        <div class="city4">Sydney, AU</div>
+                    </div>
+                    <div class="cities" id="city5">
+                        <div class="city5-wimage">
+                            <img id="city5-wimage" src="icons/description.png" alt="sun">
+                        </div>
+                        <div class="city5-w">
+                            weather
+                        </div>
+                        <div class="city5">Tokyo, JP</div>
+                    </div>
+                    <div class="cities" id="city6">
+                        <div class="city6-wimage">
+                            <img id="city6-wimage" src="icons/description.png" alt="sun">
+                        </div>
+                        <div class="city6-w">
+                            weather
+                        </div>
+                        <div class="city6">Dubai, AE</div>
+                    </div>
+                    <div class="cities" id="city7">
+                        <div class="city7-wimage">
+                            <img id="city7-wimage" src="icons/description.png" alt="sun">
+                        </div>
+                        <div class="city7-w">
+                            weather
+                        </div>
+                        <div class="city7">seoul, KR</div>
+                    </div>
+                </div>
             </div>
         </div>
-        
-    </main> 
-    
+
+        <div class="resp-not-ok" onload="loading()">
+            <div class="message-box">
+                <span><img src="icons/embarrassed.png" alt="warning" width="80px" height="80px"></span>
+                <p class="error-title">Error !</p>
+                <p class="error-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat laudantium molestias porro eveniet </p>
+                <button id="try-again">Try Again</button>
+            </div>
+        </div>
+
+
+        <div class="getUserName">
+            <div class="name-popup">
+
+                <span id="close-icon-user-section"><img src="icons/close.png" alt="close" width="18px"
+                        height="18px"></span>
+
+                <div class="user-profile-image">
+                    <img src="/icons/user.gif" alt="">
+
+                </div>
+
+                <form>
+                    <label for="userName">Name</label>
+                    <input type="text" name="user-name" id="userName" required>
+                    <label for="userAddress">Address</label>
+                    <input type="search" name="user-address" id="userAddress">
+                    <span><input type="checkbox" name="remember" id="rememberChoice" checked> Remember Choice</span>
+                    <button type="submit" id="submit-userName">Submit</button>
+                    <span id="remove-data">Remove Your Data</span>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
     <script src="script.js"></script>
 </body>
 

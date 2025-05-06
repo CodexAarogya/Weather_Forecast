@@ -2,3 +2,14 @@
  1ecbfb6747c1f879d80ea2600aa097df
  
  const URL = 'https:api.weatherstack.com/current?access_key=1f59c44907c605874653b4e5e2922976&query=New York'
+
+Kathmandu, NP
+New York, US
+Sydney, AU
+Tokyo, JP
+Dubai, AE
+New Delhi, IN
+seoul, KR
+
+20B3B light shade
+0b131e dark shade
