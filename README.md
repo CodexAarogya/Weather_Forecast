@@ -1,2 +1,3 @@
 # Weather_Forecast
-under development !!
+Currently, This preview is only available in desktops. 
+Final version of this project will be released soon.
